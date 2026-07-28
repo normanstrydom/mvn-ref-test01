@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../mvn-ref-test02"
+		}
+	],
+	"settings": {}
+}
