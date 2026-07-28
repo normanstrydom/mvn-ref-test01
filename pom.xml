@@ -7,6 +7,18 @@
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <properties>
+    <github.packages.url>https://maven.pkg.github.com/OWNER/REPO</github.packages.url>
+  </properties>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>${github.packages.url}</url>
+    </repository>
+  </distributionManagement>
+
   <modules>
     <module>mathfcns</module>
     <module>stringfcns</module>
