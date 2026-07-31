@@ -1,11 +1,16 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.devtest</groupId>
   <artifactId>mvn-ref-test01</artifactId>
-  <version>1.0.2-SNAPSHOT</version>
+  <version>1.0.4-SNAPSHOT</version>
   <packaging>pom</packaging>
+
+  <scm>
+    <connection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</connection>
+    <developerConnection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</developerConnection>
+    <url>https://github.com/normanstrydom/mvn-ref-test01</url>
+    <tag>HEAD</tag>
+  </scm>
 
   <properties>
     <github.packages.url>https://maven.pkg.github.com/normanstrydom/mvn-ref-test01</github.packages.url>
@@ -18,13 +23,6 @@
       <url>${github.packages.url}</url>
     </repository>
   </distributionManagement>
-
-  <scm>
-    <connection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</connection>
-    <developerConnection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</developerConnection>
-    <url>https://github.com/normanstrydom/mvn-ref-test01</url>
-    <tag>HEAD</tag>
-  </scm>
 
   <modules>
     <module>mathfcns</module>
