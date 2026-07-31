@@ -8,8 +8,8 @@
   <packaging>pom</packaging>
 
   <scm>
-    <connection>scm:git:git://github.com/normanstrydom/mvn-ref-test01.git</connection>
-    <developerConnection>scm:git:ssh://github.com/normanstrydom/mvn-ref-test01.git</developerConnection>
+    <connection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</connection>
+    <developerConnection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</developerConnection>
     <url>https://github.com/normanstrydom/mvn-ref-test01</url>
   </scm>
 
