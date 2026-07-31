@@ -52,7 +52,8 @@ jobs:
 
       - name: Set release version in all modules
         run: |
-          mvn package
+#          mvn package
+          mvn -Dtag=${{ github.event.inputs.releaseVersion}} -DreleaseVersion=${{ github.event.inputs.releaseVersion }} -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} -Darguments="-DskipTests -Dmaven.javadoc.skip=true" release:prepare release:perform -B -ntp -Dgithub.packages.url=https://maven.pkg.github.com/${{ github.repository }} -s "$RUNNER_TEMP/settings.xml"
 
 
 
