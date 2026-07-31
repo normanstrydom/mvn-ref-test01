@@ -2,13 +2,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.devtest</groupId>
   <artifactId>mvn-ref-test01</artifactId>
-  <version>1.0.3-SNAPSHOT</version>
+  <version>1.0.3-Final</version>
   <packaging>pom</packaging>
 
   <scm>
     <connection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</connection>
     <developerConnection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</developerConnection>
     <url>https://github.com/normanstrydom/mvn-ref-test01</url>
+    <tag>mvn-ref-test01-1.0.3-Final</tag>
   </scm>
 
   <properties>
