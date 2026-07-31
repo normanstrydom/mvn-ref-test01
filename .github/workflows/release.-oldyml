@@ -1,13 +1,13 @@
-name: Maven release from GitHub Actions
+name: Release to GitHub Packages
 
 on:
   workflow_dispatch:
     inputs:
       releaseVersion:
-        description: 'Release version'
+        description: "Release version (example: 1.0.0-Final)"
         required: true
-      developmentVersion:
-        description: 'Development version'
+      nextSnapshotVersion:
+        description: "Next development version without -SNAPSHOT (example: 1.0.1)"
         required: true
 
 permissions:
@@ -16,10 +16,13 @@ permissions:
 
 jobs:
   release:
-    if: github.ref == 'refs/heads/release'
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -52,8 +55,23 @@ jobs:
 
       - name: Set release version in all modules
         run: |
-          mvn package
+          mvn -B -ntp versions:set -DnewVersion=${{ inputs.releaseVersion }} -DgenerateBackupPoms=false -DprocessAllModules=true
+          git commit -am "Release ${{ inputs.releaseVersion }}"
 
+      - name: Deploy released artifacts to GitHub Packages
+        run: |
+          mvn -B -ntp -s "$RUNNER_TEMP/settings.xml" -Dgithub.packages.url=https://maven.pkg.github.com/${{ github.repository }} clean deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Create and push release tag
+        run: |
+          git tag -a v${{ inputs.releaseVersion }} -m "Release ${{ inputs.releaseVersion }}"
+          git push origin HEAD
+          git push origin v${{ inputs.releaseVersion }}
 
-
+      - name: Bump to next snapshot version
+        run: |
+          mvn -B -ntp versions:set -DnewVersion=${{ inputs.nextSnapshotVersion }}-SNAPSHOT -DgenerateBackupPoms=false -DprocessAllModules=true
+          git commit -am "Bump to ${{ inputs.nextSnapshotVersion }}-SNAPSHOT"
+          git push origin HEAD
