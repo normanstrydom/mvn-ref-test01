@@ -7,8 +7,14 @@
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <scm>
+    <connection>scm:git:git://github.com/normanstrydom/mvn-ref-test01.git</connection>
+    <developerConnection>scm:git:ssh://github.com/normanstrydom/mvn-ref-test01.git</developerConnection>
+    <url>https://github.com/normanstrydom/mvn-ref-test01</url>
+  </scm>
+
   <properties>
-    <github.packages.url>https://maven.pkg.github.com/OWNER/REPO</github.packages.url>
+    <github.packages.url>https://maven.pkg.github.com/normanstrydom/mvn-ref-test01</github.packages.url>
   </properties>
 
   <distributionManagement>
