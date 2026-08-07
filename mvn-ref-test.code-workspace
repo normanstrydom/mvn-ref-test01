@@ -7,5 +7,7 @@
 			"path": "../mvn-ref-test02"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
 }
