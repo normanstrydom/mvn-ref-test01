@@ -5,16 +5,16 @@
   <version>1.0.4-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <properties>
+    <github.packages.url>https://maven.pkg.github.com/normanstrydom/${project.artifactId}</github.packages.url>
+  </properties>
+
   <scm>
-    <connection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</connection>
-    <developerConnection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</developerConnection>
-    <url>https://github.com/normanstrydom/mvn-ref-test01</url>
+    <connection>scm:git:https://github.com/normanstrydom/${project.artifactId}.git</connection>
+    <developerConnection>scm:git:https://github.com/normanstrydom/${project.artifactId}.git</developerConnection>
+    <url>https://github.com/normanstrydom/${project.artifactId}</url>
     <tag>HEAD</tag>
   </scm>
-
-  <properties>
-    <github.packages.url>https://maven.pkg.github.com/normanstrydom</github.packages.url>
-  </properties>
 
   <distributionManagement>
     <repository>
