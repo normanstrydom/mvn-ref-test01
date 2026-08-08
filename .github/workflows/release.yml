@@ -38,7 +38,7 @@ jobs:
         run: |
           mvn -B -ntp release:prepare release:perform \
             -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
-            -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} \+
+            -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} \
             -Darguments="-Dgithub.packages.url=https://maven.pkg.github.com/${{ github.repository_owner }}" \
             -s .mvn/settings.xml
         env:
