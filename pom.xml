@@ -13,7 +13,7 @@
   </scm>
 
   <properties>
-    <github.packages.url>https://maven.pkg.github.com/normanstrydom/mvn-ref-test01</github.packages.url>
+    <github.packages.url>https://maven.pkg.github.com/normanstrydom</github.packages.url>
   </properties>
 
   <distributionManagement>

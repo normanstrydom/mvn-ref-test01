@@ -5,7 +5,15 @@
 		},
 		{
 			"path": "../mvn-ref-test02"
+		},
+		{
+			"path": "../mvn-ref-test03"
+		},
+		{
+			"path": "../mvn-ref-test-release-action"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "disabled"
+	}
 }
