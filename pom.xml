@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.devtest</groupId>
   <artifactId>mvn-ref-test01</artifactId>
-  <version>1.0.13-Final</version>
+  <version>1.0.14-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -13,7 +13,7 @@
     <connection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</connection>
     <developerConnection>scm:git:https://github.com/normanstrydom/mvn-ref-test01.git</developerConnection>
     <url>https://github.com/normanstrydom/mvn-ref-test01</url>
-    <tag>mvn-ref-test01-1.0.13-Final</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
