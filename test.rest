@@ -60,5 +60,49 @@ Authorization: Bearer {{$processEnv GITHUB_TOKEN}}
 X-GitHub-Api-Version: 2022-11-28
 
 
+### Examples: list repos by user or organization, and pagination notes
+
+# List repositories for a specific user (public repos and those visible to the token)
+@username = normanstrydom
+
+GET https://api.github.com/users/{{username}}/repos?per_page=100
+Accept: application/vnd.github+json
+Authorization: Bearer {{$processEnv GITHUB_TOKEN}}
+X-GitHub-Api-Version: 2022-11-28
+
+# List repositories for an organization
+@org = my-org-name
+
+GET https://api.github.com/orgs/{{org}}/repos?per_page=100
+Accept: application/vnd.github+json
+Authorization: Bearer {{$processEnv GITHUB_TOKEN}}
+X-GitHub-Api-Version: 2022-11-28
+
+# List repositories owned by the authenticated user (type=owner)
+GET https://api.github.com/user/repos?type=owner&per_page=100
+Accept: application/vnd.github+json
+Authorization: Bearer {{$processEnv GITHUB_TOKEN}}
+X-GitHub-Api-Version: 2022-11-28
+
+# Search API: returns `total_count` (useful for exact counts)
+# Note: Search API has different rate limits and may omit some private repos.
+GET https://api.github.com/search/repositories?q=user:{{username}}&per_page=100
+Accept: application/vnd.github.v3+json
+Authorization: Bearer {{$processEnv GITHUB_TOKEN}}
+X-GitHub-Api-Version: 2022-11-28
+
+# Pagination notes
+# - Use `per_page=100` to reduce pages (max 100).
+# - Inspect the `Link` response header for rel="next" and rel="last".
+# - To fetch the next page, either follow the `rel="next"` URL or call with `page=N`.
+
+# Example: request page 2
+GET https://api.github.com/user/repos?per_page=100&page=2
+Accept: application/vnd.github+json
+Authorization: Bearer {{$processEnv GITHUB_TOKEN}}
+X-GitHub-Api-Version: 2022-11-28
+
+
+
 
 
