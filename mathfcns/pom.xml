@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.devtest</groupId>
     <artifactId>mvn-ref-test01</artifactId>
-    <version>1.0.14-Final</version>
+    <version>1.0.15-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>mathfcns</artifactId>
