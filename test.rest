@@ -1,6 +1,8 @@
 @server=https://api.github.com/repos/normanstrydom
 @repo=mvn-ref-test01
 
+### Trigger the release workflow
+
 POST {{server}}/{{repo}}/actions/workflows/release.yml/dispatches
 Accept: application/vnd.github+json
 Authorization: Bearer {{$processEnv GITHUB_TOKEN}}
@@ -8,10 +10,30 @@ X-GitHub-Api-Version: 2022-11-28
 
 {"ref":"master","inputs":{"releaseVersion":"1.0.13-Final","developmentVersion":"1.0.14-SNAPSHOT"}}
 
-###
+### Get the pom.xml file from the repository
 
 GET {{server}}/{{repo}}/contents/pom.xml
 Accept: application/vnd.github.v3.raw
+Authorization: Bearer {{$processEnv GITHUB_TOKEN}}
+X-GitHub-Api-Version: 2022-11-28
+
+
+### List branches in the repository
+
+GET {{server}}/{{repo}}/branches?per_page=100
+Accept: application/vnd.github+json
+Authorization: Bearer {{$processEnv GITHUB_TOKEN}}
+X-GitHub-Api-Version: 2022-11-28
+
+### Compare two branches (base...head)
+
+# Set `@base` and `@head` to the branches or commit SHAs you want to compare.
+@base = master
+#@head = work
+@head = deployment
+
+GET {{server}}/{{repo}}/compare/{{base}}...{{head}}
+Accept: application/vnd.github.v3+json
 Authorization: Bearer {{$processEnv GITHUB_TOKEN}}
 X-GitHub-Api-Version: 2022-11-28
 
